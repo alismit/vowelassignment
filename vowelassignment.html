@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./vowels.css"> -->
+    <title>Catch vowels</title>
+<style>
+.main-heading {
+display: flex;
+color:blue;
+border:3px solid red;
+/* justify-content:center; */
+/* text-align:right; */
+align-items: center;
+letter-spacing:0.2em;
+border:2px solid yellow;
+background-color:#00ee99;
+font-size:70px;
+font-style:arial;
+}
+.vowels {
+position:absolute;
+left:158px;
+line-height:16px;
+
+background-color:pink;
+
+font-size:32px;
+color:blue;
+}
+.input {
+color:#00ff22;
+font-size:32px;
+
+box-shadow:3px 1px 30px  red;
+}
+.vowelss {
+position:absolute;
+top:400px;
+left:160px;
+border:6px solid yellow;
+}
+.words {
+position:absolute;
+top:400px;
+left:350px;
+border:3px solid purple;
+}
+</style>
+</head>
+<body>
+    <span class="main-heading">List of Vowels  </span> <br/><br/>
+    <div class="vowels">
+       <span class="a">A</span> 
+       <span class="e">E</span> 
+       <span class="i">I</span>
+       <span class="o">O</span> 
+       <span class="u">U</span>
+     </div>
+    <br>
+
+<div class="input">
+<p class="ins">Enter any legit word to check it consists of vowels or not...</p>
+<input type="text" size="30px" id="value"> <br>
+    <p id="error"></p>
+    <button onClick="save()" class="btn" list-style>Submit</button>
+</div>
+<div class="result">
+    <div class="vowelss">
+        <p> <span class="z">Vowels Words:</span> <span id="vowel"><br></span></p>
+    </div>
+    <div class="words">
+        <p> <span class="x">Normal Words:</span> <span id="word"> <br></span> </p>
+    </div>
+</div>
+<script>
+function save () {
+    var vowels=[];
+    var word = [];  
+    var bol = false;
+    
+    var input = document.getElementById("value").value;
+    input = input.toLowerCase();
+    var error =document.getElementById("error");
+    
+    if (input === "") {
+        error.style.color = "red";
+        error.innerText = "this text field cannot remain empty ";
+    }
+
+    else{
+        error.innerText = " ";
+    }
+
+    for (var i = 0; i < input.length; i++ ) {
+
+    if (input[i] === "a" || input[i] === "e" || input[i] === "i" || input[i] === "o" || input[i] === "u"  ){
+        // vowels.push(input);
+        bol = true;
+        break;
+    }
+
+    }
+
+
+    if (bol == true)  {
+        vowels.push(input);
+        document.getElementById("vowel").innerHTML+=". "+vowels + "<br>"
+
+           
+    }
+    else {
+        bol = false;
+        word.push(input);
+        document.getElementById("word").innerHTML+=". "+word + "<br>"
+    }
+}
+
+
+</script>
+</body>
+</html>
